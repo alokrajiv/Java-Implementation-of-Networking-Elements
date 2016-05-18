@@ -10,6 +10,7 @@ public class UDPServer{
             inPacket = new DatagramPacket(in, in.length);
             sock.receive(inPacket);
             out = ("FROM UDP SERVER: " + new String(inPacket.getData(),0,inPacket.getLength())).getBytes();
+            System.out.println("FROM UDP CLIENT: " + new String(inPacket.getData(),0,inPacket.getLength()));
             outPacket = new DatagramPacket(out, out.length, inPacket.getAddress(), inPacket.getPort());
             sock.send(outPacket);
         }
